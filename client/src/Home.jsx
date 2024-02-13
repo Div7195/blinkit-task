@@ -53,7 +53,7 @@ const Home = () => {
         }
         try {
             console.log(settings.body)
-            const fetchResponse = await fetch(`http://localhost:8000/saveImage?userId=${account.id}`, settings);
+            const fetchResponse = await fetch(`https://blinkit-task-backend.vercel.app/saveImage?userId=${account.id}`, settings);
             const response = await fetchResponse.json();
             setPost(postInitialValues)
             handleClose()
@@ -67,7 +67,7 @@ const Home = () => {
 useEffect(() => {
     
     const myFunction = async() => {
-        const url = `http://localhost:8000/getAllImages?userId=${account.id}`;
+        const url = `https://blinkit-task-backend.vercel.app/getAllImages?userId=${account.id}`;
         const settings = {
         method: 'GET',
         headers: {
@@ -109,7 +109,7 @@ useEffect(() => {
                   
                   }
                   try {
-                      const fetchResponse = await fetch(`http://localhost:8000/image/upload`, settings);
+                      const fetchResponse = await fetch(`https://blinkit-task-backend.vercel.app/image/upload`, settings);
                       const response = await fetchResponse.json();
                       setPost({...postState, imageLink:response});
                       console.log(postState)
